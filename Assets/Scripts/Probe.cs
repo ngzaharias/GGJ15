@@ -5,7 +5,7 @@ public class Probe : MonoBehaviour
 {
 	Vector3 _targetPosition;
 
-	public void SetTarget(Vector3 position, float deltaHeight)
+	public void SetTarget(Vector3 position)
 	{
 		_targetPosition = position;
 	}

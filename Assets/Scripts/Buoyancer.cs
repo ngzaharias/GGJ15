@@ -42,7 +42,7 @@ public class Buoyancer : MonoBehaviour
 
 			Vector3 targetPosition = _probes[i].transform.position;
 			targetPosition.y = probeWaterLevel;
-			_probes[i].SetTarget(targetPosition, deltaLevel);
+			_probes[i].SetTarget(targetPosition);
 
 			float force = deltaLevel * Time.deltaTime * _buoyancy * _forceModifier;
 			rigidbody.AddForceAtPosition(new Vector3(0, Mathf.Clamp(force, -5.0f, 9.8f), 0), _probes[i].transform.position);
