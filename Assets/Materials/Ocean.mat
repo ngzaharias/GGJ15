@@ -17,7 +17,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 943c1e423633dea45853f3e29a6fc709, type: 3}
+          m_Texture: {fileID: 2800000, guid: b1219c1fd0c215c4ab64d854b468964e, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -41,9 +41,16 @@ Material:
           m_Texture: {fileID: 2800000, guid: 943c1e423633dea45853f3e29a6fc709, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 0a9ec93ee4729b144b9480531dfb1fbe, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats: {}
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .0847750679, g: .487268895, b: .823529422, a: 1}
+        second: {r: 1, g: 1, b: 1, a: .498039216}
