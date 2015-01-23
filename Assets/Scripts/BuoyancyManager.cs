@@ -7,21 +7,12 @@ public class BuoyancyManager : MonoBehaviour
 
 	public static BuoyancyManager Instance
 	{
-		get
-		{
-			return instance;
-		}
+		get { return instance; }
 	}
 
-	public static bool 		PROBE_VISUALIZE = false;
-	public static float 	PROBE_SIZE = 0.05f;
+	public static bool 		PROBE_VISUALIZE = true;
+	public static float 	PROBE_SIZE = 0.1f;
 
-	public static bool 		TESTASD = false;
-
-	[SerializeField]bool		_visualizeProbes = false;
-	[SerializeField]float		_probeSize = 0.05f;
-	[SerializeField]float		_waveScale = 1;
-	[SerializeField]float		_waveSpeed = 1;
 	[SerializeField]Texture2D 	_heightmap;
 	
 	void Awake()
@@ -37,12 +28,6 @@ public class BuoyancyManager : MonoBehaviour
 		}
 
 		DontDestroyOnLoad(this.gameObject);
-	}
-
-	void LateUpdate()
-	{
-		PROBE_VISUALIZE = _visualizeProbes;
-		PROBE_SIZE = _probeSize;
 	}
 
 	public float GetHeight(Vector3 position)
