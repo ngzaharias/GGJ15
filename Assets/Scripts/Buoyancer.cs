@@ -46,7 +46,6 @@ public class Buoyancer : MonoBehaviour
 
 			float force = deltaLevel * Time.deltaTime * _buoyancy * _forceModifier;
 			rigidbody.AddForceAtPosition(new Vector3(0, Mathf.Clamp(force, -5.0f, 9.8f), 0), _probes[i].transform.position);
-			rigidbody.AddForce(transform.TransformDirection(Vector3.right * 0.5f));
 		}
 	}
 }
