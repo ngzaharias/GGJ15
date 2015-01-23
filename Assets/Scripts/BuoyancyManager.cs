@@ -30,7 +30,10 @@ public class BuoyancyManager : MonoBehaviour
 		DontDestroyOnLoad(this.gameObject);
 	}
 
-	public float GetHeight(Vector3 position)
+	/// <summary>Returns the water level at a given position</summary>
+	/// <param name="position"></param>
+	/// <returns></returns>
+	public float GetWaterLevelAtPosition(Vector3 position)
 	{
 		float timescale = Time.time * -0.05f;
 		float u = (position.x * 0.1f) + timescale;

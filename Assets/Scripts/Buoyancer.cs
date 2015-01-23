@@ -19,7 +19,7 @@ public class Buoyancer : MonoBehaviour
 	{
 		for (int i = 0; i < _probes.Length; i++)
 		{
-			float waterLevelAtProbe = BuoyancyManager.Instance.GetHeight(_probes[i].transform.position);
+			float waterLevelAtProbe = BuoyancyManager.Instance.GetWaterLevelAtPosition(_probes[i].transform.position);
 			float deltaLevel = waterLevelAtProbe - _probes[i].transform.position.y;
 			float force = deltaLevel * Time.deltaTime * _buoyancy * _ProbeContribution;
 			Vector3 probePosition = _probes[i].transform.position;
