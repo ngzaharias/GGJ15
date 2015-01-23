@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftSteerPoint: {fileID: 1812459031}
   _rightSteerPoint: {fileID: 573672911}
-  _force: 500
+  _force: 50
 --- !u!1 &356498793
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +563,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _steerDirection: {fileID: 537013724}
+  _horizontalInputAxis: Right_X
+  _verticalInputAxis: Right_Y
+  _invertAxisAngle: 1
+  _axisAngleThreshold: 90
+  _force: 50
 --- !u!1 &641939987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1142,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _steerDirection: {fileID: 1974523492}
+  _horizontalInputAxis: Left_X
+  _verticalInputAxis: Left_Y
+  _invertAxisAngle: 0
+  _axisAngleThreshold: 90
+  _force: 50
 --- !u!1 &1974523491
 GameObject:
   m_ObjectHideFlags: 0
