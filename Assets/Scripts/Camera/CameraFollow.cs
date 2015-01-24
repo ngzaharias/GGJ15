@@ -13,7 +13,8 @@ public class CameraFollow : MonoBehaviour {
     public float _zoomMaxDistance = 15.0f;
 
     public float _rotateYawSpeed = 50.0f;
-    public float _rotatePitchRollSpeed = 10.0f;
+    public float _rotateRollSpeed = 10.0f;
+    public float _rotateRollLimit = 45.0f;
 
     private Transform _camera = null;
     private float _scrollDelta = 0.0f;
@@ -21,8 +22,6 @@ public class CameraFollow : MonoBehaviour {
 
     void Awake()
     {
-        Debug.LogWarning("CameraFollow - Pitch and Roll not implemented yet!");
-
         _camera = GetComponentInChildren<Camera>().transform;
     }
 
@@ -84,15 +83,25 @@ public class CameraFollow : MonoBehaviour {
     {
         Quaternion currentRot = transform.rotation;
         Quaternion targetRot = _target.rotation;
+        Quaternion newRot = currentRot;
 
         Quaternion yawRot = targetRot;
         yawRot.x = 0;
         yawRot.z = 0;
 
-        Quaternion pitchRollRot = targetRot;
-        pitchRollRot.y = 0;
+        Quaternion rollRot = targetRot;
+        rollRot.x = 0;
+        rollRot.y = 0;
 
-        transform.rotation = Quaternion.RotateTowards(currentRot, yawRot, _rotateYawSpeed * Time.fixedDeltaTime);
-        //transform.rotation = Quaternion.RotateTowards(currentRot, pitchRollRot, _rotatePitchRollSpeed * Time.fixedDeltaTime);
+        // if we've rolled past a limit, go back to a normal roll
+        if (targetRot.eulerAngles.z > _rotateRollLimit && targetRot.eulerAngles.z < 360 - _rotateRollLimit)
+        {
+            rollRot = currentRot;
+            rollRot.z = 0;
+        }
+
+        newRot = newRot * Quaternion.RotateTowards(currentRot, yawRot, _rotateYawSpeed * Time.fixedDeltaTime) * Quaternion.Inverse(currentRot);
+        newRot = newRot * (Quaternion.RotateTowards(currentRot, rollRot, _rotateRollSpeed * Time.fixedDeltaTime) * Quaternion.Inverse(currentRot));
+        transform.rotation = newRot;
     }
 }
