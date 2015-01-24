@@ -7,13 +7,16 @@ public class Weapon : MonoBehaviour
 	[SerializeField] float		_recoil;
 	[SerializeField] Rigidbody	_vesselRigidBody;
 	[SerializeField] Transform	_trajectory;
+	[SerializeField] Transform	_weaponRoot;
 
 	float _trajectoryPatternOffset;
 	ParticleSystem _particleSystem;
+	Vector3 _weaponRootInitialRotation;
 
 	void Start()
 	{
 		_particleSystem = GetComponent<ParticleSystem>();
+		_weaponRootInitialRotation = _weaponRoot.eulerAngles;
 	}
 
 	void Update()
@@ -23,7 +26,7 @@ public class Weapon : MonoBehaviour
 			Fire();
 		}
 
-		_trajectoryPatternOffset -= Time.deltaTime;
+		_trajectoryPatternOffset -= Time.deltaTime * 3;
 		_trajectory.position = transform.position;
 
 		//GetComponent<Trajectory>().setTrajectoryPoints(transform.position, GetFireDirection() * force * 0.01995f);
@@ -43,6 +46,13 @@ public class Weapon : MonoBehaviour
 		float flightTime = (2 * _force * angle2) / gravity;
 		_trajectory.renderer.materials[0].SetTextureOffset("_MainTex", new Vector2(_trajectoryPatternOffset, 0));
 		_trajectory.renderer.materials[0].SetTextureScale("_MainTex", new Vector2(flightTime * 0.5f, 1));
+	}
+
+	void LateUpdate()
+	{
+		Vector3 stabilizedRotation = _weaponRootInitialRotation;
+		stabilizedRotation.y = _vesselRigidBody.transform.eulerAngles.y;
+		_weaponRoot.eulerAngles = stabilizedRotation;
 	}
 
 	void OnDrawGizmos()
