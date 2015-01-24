@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
 		{
 			Fire();
 		}
@@ -51,7 +51,7 @@ public class Weapon : MonoBehaviour
 	void LateUpdate()
 	{
 		Vector3 stabilizedRotation = _weaponRootInitialRotation;
-		stabilizedRotation.y = _vesselRigidBody.transform.eulerAngles.y;
+		stabilizedRotation.y = _vesselRigidBody.transform.eulerAngles.y + _weaponRootInitialRotation.y;
 		_weaponRoot.eulerAngles = stabilizedRotation;
 	}
 
