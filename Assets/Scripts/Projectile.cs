@@ -14,19 +14,13 @@ public class Projectile : MonoBehaviour
 		_particleSystem = GetComponent<ParticleSystem>();
 	}
 
-	public void Fire(Vector3 direction)
+	public void Fire(Vector3 direction, float force)
 	{
-		rigidbody.AddForce(direction * 1000);
-		//_directon = direction;
+		rigidbody.AddForce(direction * force);
 	}
 
 	void Update()
 	{
-		//if (!_flaggedForKill)
-		//{
-		//	transform.Translate(_directon);
-		//}
-
 		_lifespan += Time.deltaTime;
 		if (_lifespan > 10 || (_flaggedForKill && _particleSystem.particleCount == 0))
 		{
