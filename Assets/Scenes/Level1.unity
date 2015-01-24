@@ -18798,6 +18798,7 @@ GameObject:
   - 4: {fileID: 1280385041}
   - 33: {fileID: 1280385040}
   - 23: {fileID: 1280385039}
+  - 123: {fileID: 1280385042}
   m_Layer: 0
   m_Name: Cthulu_LP:Sphere001
   m_TagString: Untagged
@@ -18846,6 +18847,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1242335410}
   m_RootOrder: 0
+--- !u!123 &1280385042
+LensFlare:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1280385038}
+  m_Enabled: 1
+  m_Flare: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Brightness: 1
+  m_FadeSpeed: 3
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
 --- !u!1 &1301618692
 GameObject:
   m_ObjectHideFlags: 0

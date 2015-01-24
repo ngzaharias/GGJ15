@@ -15,7 +15,7 @@ public class Cthulu : MonoBehaviour
 
 	void Update()
 	{
-		_neck.transform.LookAt(_target.position, Vector3.right);
+		_neck.transform.LookAt(_target.position, Vector3.left);
 		_neck.transform.eulerAngles -= _lookOffset;
 	}
 }
