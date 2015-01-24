@@ -5,6 +5,7 @@ public class Cthulu : MonoBehaviour
 {
 	[SerializeField] Transform _target;
 	[SerializeField] Vector3 _lookOffset;
+	[SerializeField] Vector3 _upVector;
 
 	Transform _neck;
 
@@ -15,7 +16,7 @@ public class Cthulu : MonoBehaviour
 
 	void Update()
 	{
-		_neck.transform.LookAt(_target.position, Vector3.left);
+		_neck.transform.LookAt(_target.position, _upVector);
 		_neck.transform.eulerAngles -= _lookOffset;
 	}
 }
