@@ -3,18 +3,26 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
-    public Transform _objectToFollow = null;
+    private const float _scrollDeltaFalloff = 0.05f;
+
+    public Transform _target = null;
     public AnimationCurve _followCurve = AnimationCurve.Linear(0, 1, 10, 10);
 
-    public float _zoomSpeed = 100.0f;
-    public float _zoomDistance = 5.0f;
+    public float _zoomSpeed = 50.0f;
+    public float _zoomMinDistance = 5.0f;
+    public float _zoomMaxDistance = 15.0f;
+
+    public float _rotateYawSpeed = 50.0f;
+    public float _rotatePitchRollSpeed = 10.0f;
 
     private Transform _camera = null;
     private float _scrollDelta = 0.0f;
-    private const float _scrollDeltaFalloff = 0.2f;
+    private float _zoomDelta = 0.0f;
 
     void Awake()
     {
+        Debug.LogWarning("CameraFollow - Pitch and Roll not implemented yet!");
+
         _camera = GetComponentInChildren<Camera>().transform;
     }
 
@@ -24,24 +32,67 @@ public class CameraFollow : MonoBehaviour {
         _scrollDelta += Input.GetAxis("Mouse ScrollWheel");
 
         TargetFollow();
-        TargetZoom(_scrollDelta);
+        TargetZoom();
+        TargetRotate();
     }
 
     void TargetFollow()
     {
         Vector3 currentPos = transform.position;
-        Vector3 targetPos = _objectToFollow.position;
+        Vector3 targetPos = _target.position;
         float distance = Vector3.Distance(currentPos, targetPos);
 
         distance = _followCurve.Evaluate(distance);
         transform.position = Vector3.MoveTowards(currentPos, targetPos, distance * Time.fixedDeltaTime);
     }
 
-    void TargetZoom(float delta)
+    void TargetZoom()
     {
-        float zoomDelta = delta * _zoomSpeed;
-        Vector3 targetPos = _camera.transform.localPosition + (_camera.forward * _zoomDistance);
+        Vector3 targetPos = _camera.position;
 
-         _camera.position = Vector3.MoveTowards(_camera.position, targetPos, zoomDelta * Time.fixedDeltaTime);
+        _zoomDelta = _scrollDelta * _zoomSpeed;
+
+        if (_zoomDelta < 0)
+        {
+            targetPos = _camera.position - (_camera.forward * _zoomMinDistance);
+        }
+        else if (_zoomDelta > 0)
+        {
+            targetPos = _camera.position + (_camera.forward * _zoomMaxDistance);
+        }
+
+        _zoomDelta = Mathf.Abs(_zoomDelta);
+        _camera.position = Vector3.MoveTowards(_camera.position, targetPos, _zoomDelta * Time.fixedDeltaTime);
+
+        //  correction to stop exceeding zoom levels
+        float distance = Vector3.Distance(transform.position, _camera.position);
+        if (distance < _zoomMinDistance)
+        {
+            targetPos = transform.position + (-_camera.forward * _zoomMinDistance);
+            _camera.position = Vector3.MoveTowards(_camera.position, targetPos, _zoomSpeed * Time.fixedDeltaTime);
+            _scrollDelta = 0.0f;
+        }
+        if (distance > _zoomMaxDistance)
+        {
+            targetPos = transform.position + (-_camera.forward * _zoomMaxDistance);
+            _camera.position = Vector3.MoveTowards(_camera.position, targetPos, _zoomSpeed * Time.fixedDeltaTime);
+            _scrollDelta = 0.0f;
+        }
+    }
+
+    void TargetRotate()
+    {
+        Quaternion currentRot = transform.rotation;
+        Quaternion targetRot = _target.rotation;
+
+        Quaternion yawRot = targetRot;
+        yawRot.x = 0;
+        yawRot.z = 0;
+
+        Quaternion pitchRollRot = targetRot;
+        pitchRollRot.y = 0;
+
+        transform.rotation = Quaternion.RotateTowards(currentRot, yawRot, _rotateYawSpeed * Time.fixedDeltaTime);
+        //transform.rotation = Quaternion.RotateTowards(currentRot, pitchRollRot, _rotatePitchRollSpeed * Time.fixedDeltaTime);
     }
 }
