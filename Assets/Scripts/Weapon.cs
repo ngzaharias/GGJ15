@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 	[SerializeField] Rigidbody	_vesselRigidBody;
 	[SerializeField] Transform	_trajectory;
 	[SerializeField] Transform	_weaponRoot;
-
+	
 	float _trajectoryPatternOffset;
 	ParticleSystem _particleSystem;
 	Vector3 _weaponRootInitialRotation;
@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
 
 		//GetComponent<Trajectory>().setTrajectoryPoints(transform.position, GetFireDirection() * force * 0.01995f);
 
-		float angle = transform.parent.eulerAngles.z;
+		float angle = -transform.parent.eulerAngles.x;
 		float angle2 = Mathf.Sin(angle * Mathf.Deg2Rad);
 		float gravity = Physics.gravity.magnitude;
 
@@ -39,8 +39,8 @@ public class Weapon : MonoBehaviour
 		float timeOfLand = (2 * _force * angle2) / gravity;
 		float peak = _force * timeOfPeak * angle2 - (gravity * timeOfPeak * timeOfPeak / 2.0f);
 		float distance = _force * timeOfLand * Mathf.Cos(angle * Mathf.Deg2Rad);
-		float scaleCorrection = 0.0001555f;
-		_trajectory.localScale = new Vector3(distance * scaleCorrection, peak * scaleCorrection, 1);
+		float scaleCorrection = 0.000395f;
+		_trajectory.localScale = new Vector3(1, peak * scaleCorrection, distance * scaleCorrection);
 
 		// Tile and scroll trajectory pattern
 		float flightTime = (2 * _force * angle2) / gravity;
