@@ -4,6 +4,7 @@ using System.Collections;
 public class EffectsProbe : MonoBehaviour
 {
 	[SerializeField] int _emissionModifier = 2500;
+	[SerializeField] float _emissionThreshold = 0.05f;
 
 	float _previousLevel;
 	Vector3 _previousPosition;
@@ -29,7 +30,7 @@ public class EffectsProbe : MonoBehaviour
 		if (Mathf.Abs(levelDifference) < 0.5f)
 		{
 			_particleSystem.startSpeed = 2.5f + (deltaPosition * 25);
-			_particleSystem.emissionRate = (deltaPosition - 0.05f) * _emissionModifier;
+			_particleSystem.emissionRate = (deltaPosition - _emissionThreshold) * _emissionModifier;
 		}
 		else
 		{

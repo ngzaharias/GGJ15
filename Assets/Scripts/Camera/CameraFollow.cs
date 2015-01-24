@@ -32,7 +32,7 @@ public class CameraFollow : MonoBehaviour {
 
         TargetFollow();
         TargetZoom();
-        TargetRotate();
+		//TargetRotate();
     }
 
     void TargetFollow()
