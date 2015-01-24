@@ -3,11 +3,10 @@ using System.Collections;
 
 public class Buoyancer : MonoBehaviour
 {
-	[SerializeField] float 			_buoyancy = 100;
+	[SerializeField] float 	_buoyancy = 100;
 
-	Probe[] _buoyancyProbes;
-
-	float 	_ProbeContribution;
+	Probe[]		_buoyancyProbes;
+	float 		_ProbeContribution;
 
 	void Start ()
 	{
