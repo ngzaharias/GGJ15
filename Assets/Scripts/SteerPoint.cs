@@ -3,11 +3,47 @@ using System.Collections;
 
 public class SteerPoint : MonoBehaviour
 {
+    //[System.Serializable]
+    //public class SteerDirection
+    //{
+    //    [SerializeField]
+    //    Transform _direction;
+    //    [SerializeField]
+    //    float _force;
+
+    //    public Vector3 Direction(Vector3 position)
+    //    {
+    //        if (_direction != null)
+    //        {
+    //            return (_direction.position - position).normalized * _force;
+    //        }
+
+    //        return Vector3.zero;
+    //    }
+
+    //    public Vector3 Position
+    //    {
+    //        get
+    //        {
+    //            if (_direction != null)
+    //            {
+    //                return _direction.position;
+    //            }
+
+    //            return Vector3.zero;
+    //        }
+    //    }
+    //}
+
     public static bool GIZMO_VISUALIZE = true;
     public static float GIZMO_SIZE = 0.1f;
 
     [SerializeField]
+    //SteerDirection[] _steerDirections;
     Transform _steerDirection = null;
+
+    [SerializeField]
+    float _force = 50.0f;
 
     [SerializeField]
     string _horizontalInputAxis = "Horizontal";
@@ -31,9 +67,6 @@ public class SteerPoint : MonoBehaviour
     [SerializeField]
     float _maxAxisAngleThreshold = 270.0f;
 
-    [SerializeField]
-    float _force = 10.0f;
-
     Rigidbody _parentRigidbody = null;
 
     public Vector3 Direction
@@ -42,7 +75,7 @@ public class SteerPoint : MonoBehaviour
         {
             if (_steerDirection != null)
             {
-                return (_steerDirection.position - transform.position).normalized;
+                return (_steerDirection.position - transform.position).normalized * _force;
             }
 
             return Vector3.zero;
@@ -66,7 +99,12 @@ public class SteerPoint : MonoBehaviour
         if ((_axisAngle >= _minAxisAngleThreshold && _axisAngle < _maxAxisAngleThreshold) &&
             ((_rotateClockwise && _axisAngleDelta > 0.0f) || (!_rotateClockwise && _axisAngleDelta < 0.0f)))
         {
-            _parentRigidbody.AddForceAtPosition(Direction * _force, transform.position);
+            //foreach (SteerDirection steerDirection in _steerDirections)
+            //{
+            //    _parentRigidbody.AddForceAtPosition(steerDirection.Direction(transform.position), transform.position);
+            //}
+
+            _parentRigidbody.AddForceAtPosition(Direction, transform.position);
         }
     }
 
@@ -77,10 +115,16 @@ public class SteerPoint : MonoBehaviour
             Gizmos.color = Color.blue;
             Gizmos.DrawSphere(transform.position, GIZMO_SIZE);
 
+            //foreach (SteerDirection steerDirection in _steerDirections)
+            //{
+            //    Gizmos.color = Color.yellow;
+            //    Gizmos.DrawSphere(steerDirection.Position, GIZMO_SIZE);
+            //}
+
             if (_steerDirection != null)
             {
                 Gizmos.color = Color.yellow;
-                Gizmos.DrawSphere(_steerDirection.transform.position, GIZMO_SIZE);
+                Gizmos.DrawSphere(_steerDirection.position, GIZMO_SIZE);
             }
         }
     }
