@@ -34,5 +34,12 @@ public class Projectile : MonoBehaviour
         _particleSystem.Emit(50);
         _flaggedForKill = true;
         renderer.enabled = false;
+		
+		foreach (ContactPoint contact in collision.contacts)
+		{
+			if (contact.otherCollider.rigidbody)
+				contact.otherCollider.rigidbody.AddExplosionForce(1000, transform.position, 5.0f);
+			//Debug.DrawRay(contact.point, contact.normal, Color.white);
+        }
     }
 }
