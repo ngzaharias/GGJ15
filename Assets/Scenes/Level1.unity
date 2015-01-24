@@ -19,7 +19,7 @@ RenderSettings:
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: a1096cc957761e14698ffd422e8e6258, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -11017,6 +11017,18 @@ Prefab:
       propertyPath: m_ConnectedAnchor.z
       value: 5.56000185
       objectReference: {fileID: 0}
+    - target: {fileID: 12333756, guid: 97be5a20b267da048a066979aa2a7b46, type: 2}
+      propertyPath: m_Brightness
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 12333754, guid: 97be5a20b267da048a066979aa2a7b46, type: 2}
+      propertyPath: m_Brightness
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 12333754, guid: 97be5a20b267da048a066979aa2a7b46, type: 2}
+      propertyPath: m_Directional
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97be5a20b267da048a066979aa2a7b46, type: 2}
   m_RootGameObject: {fileID: 1925010509}
@@ -11225,7 +11237,7 @@ LensFlare:
   m_Enabled: 1
   m_Flare: {fileID: 12100000, guid: e59f068002a7b47858274b3c71e10ea7, type: 2}
   m_Color: {r: 1, g: 0, b: 0, a: 0}
-  m_Brightness: .5
+  m_Brightness: .300000012
   m_FadeSpeed: .200000003
   m_IgnoreLayers:
     serializedVersion: 2
@@ -20926,7 +20938,7 @@ LensFlare:
   m_Enabled: 1
   m_Flare: {fileID: 12100000, guid: e59f068002a7b47858274b3c71e10ea7, type: 2}
   m_Color: {r: 1, g: 0, b: 0, a: 0}
-  m_Brightness: .5
+  m_Brightness: .300000012
   m_FadeSpeed: .200000003
   m_IgnoreLayers:
     serializedVersion: 2
@@ -25901,6 +25913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1918394217}
   _lookOffset: {x: -20, y: -10, z: -15}
+  _upVector: {x: 0, y: 0, z: 0}
 --- !u!1 &1958295071
 GameObject:
   m_ObjectHideFlags: 0
