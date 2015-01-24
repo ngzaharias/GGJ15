@@ -1,27 +1,20 @@
 fileFormatVersion: 2
-guid: 8babff8b052d11442a3474946216d59e
+guid: 65aebc8249769164dbc9a4aae993f9a5
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: MeshTugBoat
+    100000: MeshTugBoat
+    100002: //RootNode
     100004: MeshTugBoatGun
-    100006: MeshTugBoatGun1
-    400000: //RootNode
-    400002: MeshTugBoat
+    400000: MeshTugBoat
+    400002: //RootNode
     400004: MeshTugBoatGun
-    400006: MeshTugBoatGun1
-    2300000: //RootNode
-    2300002: MeshTugBoat
-    2300004: MeshTugBoatGun
-    2300006: MeshTugBoatGun1
-    3300000: //RootNode
-    3300002: MeshTugBoat
-    3300004: MeshTugBoatGun
-    3300006: MeshTugBoatGun1
+    2300000: MeshTugBoat
+    2300002: MeshTugBoatGun
+    3300000: MeshTugBoat
+    3300002: MeshTugBoatGun
     4300000: MeshTugBoat
     4300002: MeshTugBoatGun
-    4300004: MeshTugBoatGun1
     9500000: //RootNode
   materials:
     importMaterials: 1
