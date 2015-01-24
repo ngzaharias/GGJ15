@@ -24,15 +24,15 @@ Material:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
+          m_Texture: {fileID: 2800000, guid: 03e9864a5490d85459eca02afc62c478, type: 3}
+          m_Scale: {x: 100, y: 100}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _MatCap
         second:
           m_Texture: {fileID: 2800000, guid: 04173e7d552d5854ebf8b2080ac3eb27, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 0, y: 0}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
     m_Colors:
