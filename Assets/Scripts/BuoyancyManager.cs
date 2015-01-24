@@ -10,7 +10,7 @@ public class BuoyancyManager : MonoBehaviour
 		get { return instance; }
 	}
 
-	public static bool 		PROBE_VISUALIZE = false;
+	public static bool 		PROBE_VISUALIZE = true;
 	public static float 	PROBE_SIZE = 0.1f;
 
 	[SerializeField]Texture2D 	_heightmap;
@@ -36,9 +36,11 @@ public class BuoyancyManager : MonoBehaviour
 	public float GetWaterLevelAtPosition(Vector3 position)
 	{
 		float timescale = Time.time * -0.05f;
-		float u = (position.x * 0.1f) + timescale;
-		float v = (position.z * 0.1f);
+		//float u = (position.x * 0.1f) + timescale;
+		//float v = (position.z * 0.1f);
+		float u = (position.x * 0.01f) + timescale - 0.28f;
+		float v = (position.z * 0.01f) - 0.5f;
 
-		return _heightmap.GetPixelBilinear(-u, -v).r;
+		return _heightmap.GetPixelBilinear(-u, -v).r * 11.4275f;
 	}
 }
