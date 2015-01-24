@@ -24,7 +24,12 @@ public class SteerPoint : MonoBehaviour
     bool _invertAxisAngle = false;
 
     [SerializeField]
-    float _axisAngleThreshold = 90.0f;
+    bool _rotateClockwise = true;
+
+    [SerializeField]
+    float _minAxisAngleThreshold = 90.0f;
+    [SerializeField]
+    float _maxAxisAngleThreshold = 270.0f;
 
     [SerializeField]
     float _force = 10.0f;
@@ -55,10 +60,11 @@ public class SteerPoint : MonoBehaviour
         _input.y = Input.GetAxis(_verticalInputAxis);
 
         _lastAxisAngle = _axisAngle;
-        _axisAngle = Vector2.Angle((_invertAxisAngle ? -Vector2.up : Vector2.up), _input);
+        _axisAngle = AxisAngle(_invertAxisAngle, _input);
         _axisAngleDelta = _axisAngle - _lastAxisAngle;
 
-        if (_axisAngle > _axisAngleThreshold && _axisAngleDelta != 0.0f)
+        if ((_axisAngle >= _minAxisAngleThreshold && _axisAngle < _maxAxisAngleThreshold) &&
+            ((_rotateClockwise && _axisAngleDelta > 0.0f) || (!_rotateClockwise && _axisAngleDelta < 0.0f)))
         {
             _parentRigidbody.AddForceAtPosition(Direction * _force, transform.position);
         }
@@ -77,5 +83,23 @@ public class SteerPoint : MonoBehaviour
                 Gizmos.DrawSphere(_steerDirection.transform.position, GIZMO_SIZE);
             }
         }
+    }
+
+    float AxisAngle(bool invert, Vector2 input)
+    {
+        if (input != Vector2.zero)
+        {
+            float verticalAxisAngle = Vector2.Angle((invert ? -Vector2.up : Vector2.up), input);
+            float horizontalAxisAngle = Vector2.Angle(Vector2.right, input);
+
+            if (horizontalAxisAngle > 90.0f)
+            {
+                return 360.0f - verticalAxisAngle;
+            }
+
+            return verticalAxisAngle;
+        }
+
+        return 0.0f;
     }
 }

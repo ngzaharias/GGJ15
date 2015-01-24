@@ -3,36 +3,36 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
-	Vector3 _directon;
+    Vector3 _directon;
 
-	bool			_flaggedForKill = false;
-	float			_lifespan;
-	ParticleSystem	_particleSystem;
+    bool _flaggedForKill = false;
+    float _lifespan;
+    ParticleSystem _particleSystem;
 
-	void Start()
-	{
-		_particleSystem = GetComponent<ParticleSystem>();
-	}
+    void Start()
+    {
+        _particleSystem = GetComponent<ParticleSystem>();
+    }
 
-	public void Fire(Vector3 direction, float force)
-	{
-		rigidbody.AddForce(direction * force);
-	}
+    public void Fire(Vector3 direction, float force)
+    {
+        rigidbody.AddForce(direction * force);
+    }
 
-	void Update()
-	{
-		_lifespan += Time.deltaTime;
-		if (_lifespan > 10 || (_flaggedForKill && _particleSystem.particleCount == 0))
-		{
-			GameObject.Destroy(this.gameObject);
-		}
-	}
+    void Update()
+    {
+        _lifespan += Time.deltaTime;
+        if (_lifespan > 10 || (_flaggedForKill && _particleSystem.particleCount == 0))
+        {
+            GameObject.Destroy(this.gameObject);
+        }
+    }
 
-	void OnCollisionEnter(Collision collision)
-	{
-		collider.enabled = false;
-		_particleSystem.Emit(50);
-		_flaggedForKill = true;
-		renderer.enabled = false;
-	}
+    void OnCollisionEnter(Collision collision)
+    {
+        collider.enabled = false;
+        _particleSystem.Emit(50);
+        _flaggedForKill = true;
+        renderer.enabled = false;
+    }
 }

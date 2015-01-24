@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class ExtensionMethods 
+public static class ExtensionMethods
 {
     public static Quaternion Pow(this Quaternion input, float power)
     {

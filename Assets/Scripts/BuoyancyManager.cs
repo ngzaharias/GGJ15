@@ -10,7 +10,7 @@ public class BuoyancyManager : MonoBehaviour
 		get { return instance; }
 	}
 
-	public static bool 		PROBE_VISUALIZE = false;
+	public static bool 		PROBE_VISUALIZE = true;
 	public static float 	PROBE_SIZE = 0.1f;
 
 	[SerializeField]Texture2D 	_heightmap;
