@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 412004}
   - 135: {fileID: 13512050}
+  - 114: {fileID: 11433754}
   m_Layer: 0
   m_Name: PrefabCthulu
   m_TagString: Untagged
@@ -392,6 +393,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &133754
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 433754}
+  - 123: {fileID: 12333754}
+  m_Layer: 0
+  m_Name: LensFlare
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &133756
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 433756}
+  - 123: {fileID: 12333756}
+  m_Layer: 0
+  m_Name: LensFlare
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &412004
 Transform:
   m_ObjectHideFlags: 1
@@ -399,8 +432,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.09000003, z: 10.6400003}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.74000001, y: -2.73999977, z: 31.9500008}
+  m_LocalScale: {x: 2.78270912, y: 2.78270984, z: 2.78270984}
   m_Children:
   - {fileID: 412006}
   - {fileID: 412008}
@@ -520,7 +553,8 @@ Transform:
   m_LocalRotation: {x: 6.06230943e-17, y: -6.12293118e-17, z: -2.60208521e-17, w: 1}
   m_LocalPosition: {x: -.0712331757, y: -9.12895679, z: -2.48831296}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 433754}
   m_Father: {fileID: 412014}
   m_RootOrder: 0
 --- !u!4 &412022
@@ -532,7 +566,8 @@ Transform:
   m_LocalRotation: {x: 6.06230943e-17, y: -6.12293118e-17, z: -2.60208521e-17, w: 1}
   m_LocalPosition: {x: -.0712331757, y: -9.12895679, z: -2.48831296}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 433756}
   m_Father: {fileID: 412014}
   m_RootOrder: 1
 --- !u!4 &412024
@@ -703,6 +738,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412018}
   m_RootOrder: 5
+--- !u!4 &433754
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133754}
+  m_LocalRotation: {x: -4.6558167e-26, y: -9.35836341e-24, z: 0, w: -1}
+  m_LocalPosition: {x: -.300999999, y: 8.1239996, z: 1.92700005}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 412020}
+  m_RootOrder: 0
+--- !u!4 &433756
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133756}
+  m_LocalRotation: {x: -6.74384122e-26, y: -1.3555292e-23, z: -4.19358714e-10, w: -1}
+  m_LocalPosition: {x: .977116704, y: 8.7692461, z: 1.95299947}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 412022}
+  m_RootOrder: 0
 --- !u!23 &2312048
 Renderer:
   m_ObjectHideFlags: 1
@@ -715,7 +774,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 3b8fd1262ab4ba745ab6cf35d18a01ac, type: 2}
+  - {fileID: 2100000, guid: f371d52b428855345a85d7965d79f8e5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -735,7 +794,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 3b8fd1262ab4ba745ab6cf35d18a01ac, type: 2}
+  - {fileID: 2100000, guid: f371d52b428855345a85d7965d79f8e5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -975,6 +1034,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _emissionModifier: 100000
+--- !u!114 &11433754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdfb22b9dab42248ba719d4be82003a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _lookOffset: {x: -20, y: -10, z: -15}
+--- !u!123 &12333754
+LensFlare:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133754}
+  m_Enabled: 1
+  m_Flare: {fileID: 12100000, guid: e59f068002a7b47858274b3c71e10ea7, type: 2}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
+  m_Brightness: .5
+  m_FadeSpeed: .200000003
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
+--- !u!123 &12333756
+LensFlare:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133756}
+  m_Enabled: 1
+  m_Flare: {fileID: 12100000, guid: e59f068002a7b47858274b3c71e10ea7, type: 2}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
+  m_Brightness: .5
+  m_FadeSpeed: .200000003
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
 --- !u!135 &13512046
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1023,7 +1125,7 @@ SkinnedMeshRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: f607ce2b57bbb6240842f722ebdfd8a9, type: 2}
+  - {fileID: 2100000, guid: 181d100db45f60643abdb1f367fedd2b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1057,7 +1159,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 5412046}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.68000007, y: .300000489, z: 5.56000185}
+  m_ConnectedAnchor: {x: -1.68000007, y: .300000489, z: 5.5600009}
   m_Spring: 2
   m_Damper: 0
   m_MinDistance: 0
@@ -1074,7 +1176,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 5412044}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -.199999914, y: .370000511, z: 5.00000191}
+  m_ConnectedAnchor: {x: -.199999914, y: .370000511, z: 5.00000095}
   m_Spring: 2
   m_Damper: 0
   m_MinDistance: 0
