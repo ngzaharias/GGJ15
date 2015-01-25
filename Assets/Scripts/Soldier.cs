@@ -35,7 +35,7 @@ public class Soldier : MonoBehaviour
         Vector2 analogStick = new Vector2(Input.GetAxis(_inputPrefix + "_XAxis_1"), Input.GetAxis(_inputPrefix + "_YAxis_1"));
         float angle = AxisAngle(_inputPrefix == "L" ? true : false, analogStick);
         //float time = 84.0f * (angle / 360.0f);
-        float time = 1.8f * (angle / 360.0f) + 0.9f;
+        float time = 1.8f * (angle / 360.0f) + (_inputPrefix == "L" ? 0.0f : 0.9f);
         GetComponent<Animation>()["Take 001"].time = analogStick == Vector2.zero ? 0.0f : time;
     }
 
