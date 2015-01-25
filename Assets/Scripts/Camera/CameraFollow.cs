@@ -32,7 +32,7 @@ public class CameraFollow : MonoBehaviour {
 
         TargetFollow();
         TargetZoom();
-		//TargetRotate();
+		TargetRotate();
     }
 
     void TargetFollow()
@@ -93,15 +93,17 @@ public class CameraFollow : MonoBehaviour {
         rollRot.x = 0;
         rollRot.y = 0;
 
-        // if we've rolled past a limit, go back to a normal roll
-        if (targetRot.eulerAngles.z > _rotateRollLimit && targetRot.eulerAngles.z < 360 - _rotateRollLimit)
-        {
-            rollRot = currentRot;
-            rollRot.z = 0;
-        }
+        transform.rotation = Quaternion.RotateTowards(currentRot, yawRot, _rotateYawSpeed * Time.fixedDeltaTime);
 
-        newRot = newRot * Quaternion.RotateTowards(currentRot, yawRot, _rotateYawSpeed * Time.fixedDeltaTime) * Quaternion.Inverse(currentRot);
-        newRot = newRot * (Quaternion.RotateTowards(currentRot, rollRot, _rotateRollSpeed * Time.fixedDeltaTime) * Quaternion.Inverse(currentRot));
-        transform.rotation = newRot;
+        //// if we've rolled past a limit, go back to a normal roll
+        //if (targetRot.eulerAngles.z > _rotateRollLimit && targetRot.eulerAngles.z < 360 - _rotateRollLimit)
+        //{
+        //    rollRot = currentRot;
+        //    rollRot.z = 0;
+        //}
+
+        //newRot = newRot * Quaternion.RotateTowards(currentRot, yawRot, _rotateYawSpeed * Time.fixedDeltaTime) * Quaternion.Inverse(currentRot);
+        //newRot = newRot * (Quaternion.RotateTowards(currentRot, rollRot, _rotateRollSpeed * Time.fixedDeltaTime) * Quaternion.Inverse(currentRot));
+        //transform.rotation = newRot;
     }
 }
