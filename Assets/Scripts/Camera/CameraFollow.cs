@@ -13,8 +13,8 @@ public class CameraFollow : MonoBehaviour {
     public float _zoomMaxDistance = 15.0f;
 
     public float _rotateYawSpeed = 50.0f;
-    public float _rotateRollSpeed = 10.0f;
-    public float _rotateRollLimit = 45.0f;
+    //public float _rotateRollSpeed = 10.0f;
+    //public float _rotateRollLimit = 45.0f;
 
     private Transform _camera = null;
     private float _scrollDelta = 0.0f;
