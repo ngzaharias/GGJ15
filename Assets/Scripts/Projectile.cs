@@ -28,14 +28,20 @@ public class Projectile : MonoBehaviour
         }
     }
 
+	void LateUpdate()
+	{
+		float waterLevel = BuoyancyManager.Instance.GetWaterLevelAtPosition(transform.position);
+		if (!_flaggedForKill && waterLevel > transform.position.y)
+		{
+			Kill();
+			transform.Find("EProbe").GetComponent<ParticleSystem>().Emit(50);
+		}
+	}
+
     void OnCollisionEnter(Collision collision)
     {
-        collider.enabled = false;
-        _particleSystem.Emit(50);
-        _flaggedForKill = true;
-        renderer.enabled = false;
-		rigidbody.isKinematic = true;
-		
+        Kill();
+
 		foreach (ContactPoint contact in collision.contacts)
 		{
 			if (contact.otherCollider.rigidbody)
@@ -49,4 +55,13 @@ public class Projectile : MonoBehaviour
 			}
         }
     }
+
+	void Kill()
+	{
+		collider.enabled = false;
+        _particleSystem.Emit(50);
+        _flaggedForKill = true;
+        renderer.enabled = false;
+		rigidbody.isKinematic = true;
+	}
 }
