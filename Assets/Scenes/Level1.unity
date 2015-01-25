@@ -5136,7 +5136,7 @@ Transform:
   - {fileID: 1343703326}
   - {fileID: 1912786006}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!95 &246030152
 Animator:
   serializedVersion: 3
@@ -25930,7 +25930,7 @@ Transform:
   - {fileID: 659651675}
   - {fileID: 1251415106}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!135 &1925010511
 SphereCollider:
   m_ObjectHideFlags: 0
