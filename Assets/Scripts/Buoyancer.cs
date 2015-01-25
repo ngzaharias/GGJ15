@@ -19,7 +19,8 @@ public class Buoyancer : MonoBehaviour
 	{
 		if (_diesWhenFlipped && Vector3.Dot(transform.up,Vector3.up) < 0)
 		{
-			// Flipped over, dead
+			print("gameover");
+			InterfaceManager.Instance.GameOver();
 		}
 	}
 	
