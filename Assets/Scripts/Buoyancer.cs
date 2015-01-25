@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Buoyancer : MonoBehaviour
 {
+	[SerializeField] bool 	_diesWhenFlipped = false;
 	[SerializeField] float 	_buoyancy = 100;
 
 	Probe[]		_buoyancyProbes;
@@ -12,6 +13,14 @@ public class Buoyancer : MonoBehaviour
 	{
 		_buoyancyProbes = GetComponentsInChildren<Probe>();
 		_ProbeContribution = 1.0f / (float)_buoyancyProbes.Length;
+	}
+	
+	void LateUpdate()
+	{
+		if (_diesWhenFlipped && Vector3.Dot(transform.up,Vector3.up) < 0)
+		{
+			// Flipped over, dead
+		}
 	}
 	
 	void FixedUpdate ()
