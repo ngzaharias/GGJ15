@@ -38,8 +38,14 @@ public class Projectile : MonoBehaviour
 		foreach (ContactPoint contact in collision.contacts)
 		{
 			if (contact.otherCollider.rigidbody)
+			{
 				contact.otherCollider.rigidbody.AddExplosionForce(1000, transform.position, 5.0f);
-			//Debug.DrawRay(contact.point, contact.normal, Color.white);
+			}
+			
+			if (contact.otherCollider.GetComponent<Health>())
+			{
+				contact.otherCollider.GetComponent<Health>().Damage(10);
+			}
         }
     }
 }
