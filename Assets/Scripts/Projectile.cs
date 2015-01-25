@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour
         _particleSystem.Emit(50);
         _flaggedForKill = true;
         renderer.enabled = false;
+		rigidbody.isKinematic = true;
 		
 		foreach (ContactPoint contact in collision.contacts)
 		{
