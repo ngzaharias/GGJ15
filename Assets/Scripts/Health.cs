@@ -31,6 +31,14 @@ public class Health : MonoBehaviour
 
     GameObject _healthBar;
 
+    public int CurrentHealth
+    {
+        get
+        {
+            return _health;
+        }
+    }
+
     void Start()
     {
         _healthBar = (GameObject)Instantiate(Resources.Load("Interface/HealthBar"), transform.position + _healthBarOffset, Quaternion.identity);
@@ -68,6 +76,9 @@ public class Health : MonoBehaviour
                 _particlesToEmitDeath2.Emit(_onDeathEmission2);
             if (_transformToScale)
                 _transformToScale.localScale = _onDeathScale;
+
+            if (tag == "Player" && !IsInvoking("LoadCreditScene"))
+                Invoke("LoadCreditScene", 5.0f);
         }
         else
         {
@@ -76,5 +87,10 @@ public class Health : MonoBehaviour
             if (_particlesToEmitDamage2)
                 _particlesToEmitDamage2.Emit(_onDamageEmission2);
         }
+    }
+
+    void LoadCreditScene()
+    {
+        Application.LoadLevel("CreditScene");
     }
 }

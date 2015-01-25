@@ -33,11 +33,6 @@ public class Weapon : MonoBehaviour
         _triggerInput.x = Input.GetAxis("TriggersL_1");
         _triggerInput.y = Input.GetAxis("TriggersR_1");
 
-        if (_triggerInput.y != 0.0f)
-        {
-            print(_triggerInput.y);
-        }
-
         if (Input.GetKeyDown(KeyCode.Space) ||
             (_triggerInput.x == 1.0f && _lastTriggerInput.x != 1.0f) ||
             (_triggerInput.y == 1.0f && _lastTriggerInput.y != 1.0f))

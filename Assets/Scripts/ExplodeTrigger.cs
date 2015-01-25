@@ -7,15 +7,12 @@ public class ExplodeTrigger : MonoBehaviour
     GameObject _explosionPrefab;
 
     [SerializeField]
-    string[] _colliderTags = { "Player" };
-
-    [SerializeField]
     float _explosionDelay = 1.0f;
 
     [SerializeField]
     float _deathTimer = 2.0f;
 
-    GameObject explosion = null;
+    GameObject _explosion = null;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -24,28 +21,24 @@ public class ExplodeTrigger : MonoBehaviour
             return;
         }
 
-        foreach (string colliderTag in _colliderTags)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.CompareTag(colliderTag))
-            {
-                Invoke("Explode", _explosionDelay);
-                return;
-            }
+            Invoke("Explode", _explosionDelay);
+
+            Health playerHealth = collision.gameObject.GetComponent<Health>();
+            playerHealth.Damage(playerHealth.CurrentHealth);
+        }
+        else if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Invoke("Explode", _explosionDelay);
         }
     }
 
     void Explode()
     {
-        explosion = Instantiate(_explosionPrefab, transform.position, transform.rotation) as GameObject;
+        _explosion = Instantiate(_explosionPrefab, transform.position, transform.rotation) as GameObject;
 
-        //explodeParticle.Play();
-
-        Destroy(explosion, _deathTimer);
+        Destroy(_explosion, _deathTimer);
         Destroy(gameObject);
-    }
-
-    void LoadCredits()
-    {
-
     }
 }
