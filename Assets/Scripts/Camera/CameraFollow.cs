@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour {
     //public float _rotateRollLimit = 45.0f;
 
     private Transform _camera = null;
-    private float _scrollDelta = 0.0f;
+    private float _scrollDelta = -5.0f;
     private float _zoomDelta = 0.0f;
 
     void Awake()
@@ -38,7 +38,7 @@ public class CameraFollow : MonoBehaviour {
     void TargetFollow()
     {
         Vector3 currentPos = transform.position;
-        Vector3 targetPos = _target.position;
+        Vector3 targetPos = _target.position + new Vector3(0, 2, 0);
         float distance = Vector3.Distance(currentPos, targetPos);
 
         distance = _followCurve.Evaluate(distance);
