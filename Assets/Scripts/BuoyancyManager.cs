@@ -35,7 +35,7 @@ public class BuoyancyManager : MonoBehaviour
 	/// <returns></returns>
 	public float GetWaterLevelAtPosition(Vector3 position)
 	{
-		float timescale = Time.time * -0.05f;
+		float timescale = Time.timeSinceLevelLoad * -0.05f;
 		//float u = (position.x * 0.1f) + timescale;
 		//float v = (position.z * 0.1f);
 		float u = (position.x * 0.01f) + timescale - 0.28f;
