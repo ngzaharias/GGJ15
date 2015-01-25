@@ -3,39 +3,46 @@ using System.Collections;
 
 public class InterfaceManager : MonoBehaviour
 {
-    private static InterfaceManager instance = null;
+	private static InterfaceManager instance = null;
 
-    public static InterfaceManager Instance
-    {
-        get { return instance; }
-    }
+	public static InterfaceManager Instance
+	{
+		get { return instance; }
+	}
 
-    void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        else
-        {
-            instance = this;
-        }
+	[SerializeField] CanvasGroup _gameOverScreen;
 
-        DontDestroyOnLoad(this.gameObject);
-    }
+	bool gameOver = false;
+	
+	void Awake()
+	{
+		if (instance != null && instance != this)
+		{
+			Destroy(this.gameObject);
+			return;
+		}
+		else
+		{
+			instance = this;
+		}
 
+		DontDestroyOnLoad(this.gameObject);
+	}
 
+	void Update()
+	{
+		if (gameOver)
+		{
+			_gameOverScreen.alpha += Time.deltaTime;
+			if (_gameOverScreen.alpha > 1.0f)
+			{
 
-    // Use this for initialization
-    void Start()
-    {
+			}
+		}
+	}
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+	public void GameOver()
+	{
+		gameOver = true;
+	}
 }
