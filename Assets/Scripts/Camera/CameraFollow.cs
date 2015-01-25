@@ -28,11 +28,14 @@ public class CameraFollow : MonoBehaviour {
     void FixedUpdate()
     {
         _scrollDelta -= _scrollDelta * _scrollDeltaFalloff;
-        _scrollDelta += Input.GetAxis("Mouse ScrollWheel");
+        _scrollDelta += Input.GetAxis("Mouse ScrollWheel") + (Input.GetAxis("DPad_YAxis_1") * 0.01f);
 
-        TargetFollow();
-        TargetZoom();
-		TargetRotate();
+        if (_target != null)
+        {
+            TargetFollow();
+            TargetZoom();
+            TargetRotate();
+        }
     }
 
     void TargetFollow()

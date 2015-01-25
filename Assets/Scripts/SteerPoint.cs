@@ -46,9 +46,9 @@ public class SteerPoint : MonoBehaviour
     float _force = 50.0f;
 
     [SerializeField]
-    string _horizontalInputAxis = "Horizontal";
+    string[] _horizontalInputAxes = { "L_XAxis_1", "L_Horizontal" };
     [SerializeField]
-    string _verticalInputAxis = "Vertical";
+    string[] _verticalInputAxes = { "L_YAxis_1", "L_Vertical" };
 
     Vector2 _input = new Vector2();
 
@@ -89,8 +89,17 @@ public class SteerPoint : MonoBehaviour
 
     void Update()
     {
-        _input.x = Input.GetAxis(_horizontalInputAxis);
-        _input.y = Input.GetAxis(_verticalInputAxis);
+        _input = Vector2.zero;
+
+        foreach (string horizontalInputAxis in _horizontalInputAxes)
+        {
+            _input.x += Input.GetAxis(horizontalInputAxis);
+        }
+
+        foreach (string verticalInputAxis in _verticalInputAxes)
+        {
+            _input.y += Input.GetAxis(verticalInputAxis);
+        }
 
         _lastAxisAngle = _axisAngle;
         _axisAngle = AxisAngle(_invertAxisAngle, _input);

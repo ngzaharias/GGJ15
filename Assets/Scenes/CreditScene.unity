@@ -5429,8 +5429,8 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: R_Horizontal
+  m_VerticalAxis: R_Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -5560,7 +5560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a5da73721303f40ae5631236248238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputPrefix: 
+  _inputPrefix: L
   _toe: {fileID: 469956711}
   _hip: {fileID: 0}
   _vesselRoot: {fileID: 0}

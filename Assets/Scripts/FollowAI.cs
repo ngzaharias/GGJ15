@@ -8,12 +8,12 @@ public class FollowAI : MonoBehaviour
     Transform _lookAtTarget = null;
 
     [SerializeField]
-    float _force = 1.0f;
+    float _force = 2.0f;
 
     [SerializeField]
-    float _rotateSmoothTime = 1.0f;
+    float _rotateSmoothTime = 0.2f;
     [SerializeField]
-    float _rotateMaxSpeed = 1.0f;
+    float _rotateMaxSpeed = 100.0f;
 
     void Start()
     {

@@ -18,6 +18,9 @@ public class Weapon : MonoBehaviour
     ParticleSystem _particleSystem;
     Vector3 _weaponRootInitialRotation;
 
+    Vector2 _triggerInput = new Vector2();
+    Vector2 _lastTriggerInput = new Vector2();
+
     void Start()
     {
         _particleSystem = GetComponent<ParticleSystem>();
@@ -26,7 +29,18 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
+        _lastTriggerInput = _triggerInput;
+        _triggerInput.x = Input.GetAxis("TriggersL_1");
+        _triggerInput.y = Input.GetAxis("TriggersR_1");
+
+        if (_triggerInput.y != 0.0f)
+        {
+            print(_triggerInput.y);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) ||
+            (_triggerInput.x == 1.0f && _lastTriggerInput.x != 1.0f) ||
+            (_triggerInput.y == 1.0f && _lastTriggerInput.y != 1.0f))
         {
             Fire();
         }
