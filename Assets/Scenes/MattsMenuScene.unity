@@ -15,7 +15,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 1, g: .967806041, b: .933823526, a: 1}
   m_FogMode: 3
-  m_FogDensity: .0399999991
+  m_FogDensity: .0700000003
   m_LinearFogStart: -14.6400003
   m_LinearFogEnd: 863.090027
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
@@ -14682,7 +14682,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 415522, guid: 5e5e6c515283ada4dad8859cd0fd4507, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9515516, guid: 5e5e6c515283ada4dad8859cd0fd4507, type: 2}
@@ -16283,7 +16283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487632, guid: d22b818b86ef1684989543df299eecb8, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 487632, guid: d22b818b86ef1684989543df299eecb8, type: 2}
       propertyPath: m_LocalScale.x
@@ -18783,7 +18783,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 415522, guid: 5e5e6c515283ada4dad8859cd0fd4507, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9515516, guid: 5e5e6c515283ada4dad8859cd0fd4507, type: 2}
@@ -19034,7 +19034,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487632, guid: d22b818b86ef1684989543df299eecb8, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 487632, guid: d22b818b86ef1684989543df299eecb8, type: 2}
       propertyPath: m_LocalScale.x
