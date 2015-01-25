@@ -428,6 +428,7 @@ GameObject:
   - 54: {fileID: 5407066}
   - 114: {fileID: 11407066}
   - 114: {fileID: 11496742}
+  - 114: {fileID: 11483740}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Untagged
@@ -753,8 +754,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187632}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.43210411e-08}
+  m_LocalPosition: {x: .0777166635, y: 1, z: 5.70437765}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 487630}
@@ -1315,6 +1316,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _emissionModifier: 25000
   _emissionThreshold: .0500000007
+--- !u!114 &11483740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ceb4a8b5262fed4796896477c0b97b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionPrefab: {fileID: 159446, guid: eec31f15a280a1c4195e88eb4e3e8465, type: 2}
+  _colliderTags:
+  - Player
+  _explosionDelay: 1
+  _deathTimer: 5
 --- !u!114 &11496742
 MonoBehaviour:
   m_ObjectHideFlags: 1

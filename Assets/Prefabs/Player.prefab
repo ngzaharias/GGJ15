@@ -575,7 +575,7 @@ GameObject:
   - 64: {fileID: 6479312}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4673,7 +4673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a5da73721303f40ae5631236248238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputPrefix: Right
+  _inputPrefix: R
   _toe: {fileID: 479574}
   _hip: {fileID: 479460}
   _vesselRoot: {fileID: 479368}
@@ -4738,7 +4738,7 @@ MonoBehaviour:
   _verticalInputAxes:
   - L_YAxis_1
   - L_Vertical
-  _invertAxisAngle: 0
+  _invertAxisAngle: 1
   _rotateClockwise: 1
   _minAxisAngleThreshold: 90
   _maxAxisAngleThreshold: 270
@@ -4781,13 +4781,13 @@ MonoBehaviour:
   _steerDirection: {fileID: 479588}
   _force: 10
   _horizontalInputAxes:
-  - L_XAxis_1
-  - L_Horizontal
+  - R_XAxis_1
+  - R_Horizontal
   _verticalInputAxes:
-  - L_YAxis_1
-  - L_Vertical
+  - R_YAxis_1
+  - R_Vertical
   _invertAxisAngle: 1
-  _rotateClockwise: 1
+  _rotateClockwise: 0
   _minAxisAngleThreshold: 90
   _maxAxisAngleThreshold: 270
 --- !u!114 &11479328
@@ -4849,7 +4849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a5da73721303f40ae5631236248238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputPrefix: Left
+  _inputPrefix: L
   _toe: {fileID: 479484}
   _hip: {fileID: 479504}
   _vesselRoot: {fileID: 479368}
