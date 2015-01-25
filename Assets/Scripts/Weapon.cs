@@ -40,6 +40,16 @@ public class Weapon : MonoBehaviour
             Fire();
         }
 
+		if (Input.GetKeyDown(KeyCode.UpArrow))
+		{
+			_force += 100;
+		}
+
+		if (Input.GetKeyDown(KeyCode.DownArrow))
+		{
+			_force -= 100;
+		}
+
         _trajectoryPatternOffset -= Time.deltaTime * 3;
         _trajectory.position = transform.position;
 
