@@ -78,7 +78,10 @@ public class Health : MonoBehaviour
                 _transformToScale.localScale = _onDeathScale;
 
             if (tag == "Player" && !IsInvoking("LoadCreditScene"))
-                Invoke("LoadCreditScene", 5.0f);
+			{
+				//Invoke("LoadCreditScene", 5.0f);
+				InterfaceManager.Instance.GameOver();
+			}
         }
         else
         {

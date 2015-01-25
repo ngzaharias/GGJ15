@@ -36,7 +36,7 @@ public class InterfaceManager : MonoBehaviour
 			_gameOverScreen.alpha += Time.deltaTime;
 			if (_gameOverScreen.alpha > 1.0f)
 			{
-
+				Invoke("LoadCreditScene", 5.0f);
 			}
 		}
 	}
@@ -45,4 +45,9 @@ public class InterfaceManager : MonoBehaviour
 	{
 		gameOver = true;
 	}
+
+	void LoadCreditScene()
+    {
+        Application.LoadLevel("CreditScene");
+    }
 }
