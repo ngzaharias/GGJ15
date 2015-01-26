@@ -26,7 +26,7 @@ public class InterfaceManager : MonoBehaviour
 			instance = this;
 		}
 
-		DontDestroyOnLoad(this.gameObject);
+	//	DontDestroyOnLoad(this.gameObject);
 	}
 
 	void Update()

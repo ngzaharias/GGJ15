@@ -27,7 +27,7 @@ public class BuoyancyManager : MonoBehaviour
 			instance = this;
 		}
 
-		DontDestroyOnLoad(this.gameObject);
+	//	DontDestroyOnLoad(this.gameObject);
 	}
 
 	/// <summary>Returns the water level at a given position</summary>
